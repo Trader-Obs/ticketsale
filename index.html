@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logan Ryan Band — Live at The Ironside | Tickets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16130f;
+    --ink-soft:#241f18;
+    --paper:#ece3d0;
+    --paper-dim:#dcd0b6;
+    --rust:#c1481e;
+    --rust-dark:#8f3315;
+    --gold:#dba53d;
+    --teal:#24504a;
+    --line: rgba(236,227,208,0.18);
+    --shadow: 0 18px 40px rgba(0,0,0,0.35);
+    --radius: 2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Archivo', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  a{color:inherit;}
+  .display{font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.01em;}
+  .mono{font-family:'Space Mono', monospace;}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- HALFTONE TEXTURE ---------- */
+  .halftone{
+    position:absolute; inset:0;
+    background-image: radial-gradient(circle, rgba(236,227,208,0.5) 1px, transparent 1.4px);
+    background-size: 7px 7px;
+    mix-blend-mode: overlay;
+    opacity:0.35;
+    pointer-events:none;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(22,19,15,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1100px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'Anton', sans-serif; font-size:1.15rem; letter-spacing:0.04em;
+    text-decoration:none; color:var(--paper);
+  }
+  .nav-mark span{color:var(--rust);}
+  .nav-cta{
+    font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.08em;
+    text-transform:uppercase; text-decoration:none;
+    background:var(--rust); color:var(--paper);
+    padding:10px 18px; border-radius:var(--radius);
+    border:1px solid var(--rust);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--rust-dark); transform:translateY(-1px);}
+  .nav-cta:focus-visible, a:focus-visible, button:focus-visible{
+    outline:3px solid var(--gold); outline-offset:2px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:100px 24px 90px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(193,72,30,0.35), transparent 55%),
+      radial-gradient(ellipse at 90% 10%, rgba(36,80,74,0.35), transparent 50%),
+      var(--ink);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    max-width:1100px; margin:0 auto; position:relative; z-index:2;
+    text-align:center;
+  }
+  .stamp{
+    display:inline-block;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold);
+    border:1.5px solid var(--gold);
+    padding:6px 14px;
+    border-radius:100px;
+    transform:rotate(-3deg);
+    margin-bottom:28px;
+  }
+  .hero h1{
+    margin:0;
+    font-size:clamp(3.2rem, 11vw, 8rem);
+    line-height:0.86;
+    color:var(--paper);
+  }
+  .hero h1 .accent{color:var(--rust); display:block;}
+  .hero-sub{
+    margin:26px auto 0;
+    max-width:560px;
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--paper-dim);
+    font-style:italic;
+  }
+
+  .hero-facts{
+    margin-top:44px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-fact{
+    font-family:'Space Mono', monospace;
+    padding:18px 28px;
+    border-right:1px solid var(--line);
+    text-align:left;
+    min-width:150px;
+  }
+  .hero-fact:last-child{border-right:none;}
+  .hero-fact .k{display:block; font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
+  .hero-fact .v{display:block; font-size:1rem; color:var(--paper);}
+
+  .hero-cta-row{
+    margin-top:44px;
+    display:flex; justify-content:center; gap:16px; flex-wrap:wrap;
+  }
+  .btn-primary{
+    font-family:'Space Mono', monospace; font-size:0.85rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    background:var(--rust); color:var(--paper);
+    padding:16px 34px; border-radius:var(--radius);
+    border:1px solid var(--rust);
+    transition: background 0.2s ease, transform 0.2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--rust-dark); transform:translateY(-2px);}
+  .btn-ghost{
+    font-family:'Space Mono', monospace; font-size:0.85rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none;
+    color:var(--paper); padding:16px 28px; border-radius:var(--radius);
+    border:1px solid var(--line);
+    transition: border-color 0.2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:90px 24px;}
+  .section-head{
+    display:flex; align-items:baseline; gap:18px;
+    margin-bottom:44px;
+  }
+  .section-num{
+    font-family:'Space Mono', monospace; color:var(--rust); font-size:0.9rem;
+  }
+  .section-title{
+    font-size:clamp(2rem, 5vw, 3.2rem);
+    margin:0;
+    color:var(--paper);
+  }
+  .section-rule{
+    flex:1; height:1px; background:var(--line);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--ink-soft); border-bottom:1px solid var(--line);}
+  .about-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:60px; align-items:start;
+  }
+  .about-copy p{
+    font-size:1.05rem; line-height:1.75; color:var(--paper-dim); margin:0 0 20px;
+  }
+  .lineup{
+    border:1px solid var(--line);
+    padding:28px;
+    background:rgba(236,227,208,0.03);
+  }
+  .lineup h3{
+    font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--gold); margin:0 0 18px;
+  }
+  .lineup ul{list-style:none; margin:0; padding:0;}
+  .lineup li{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:12px 0; border-bottom:1px solid var(--line);
+    font-size:0.98rem;
+  }
+  .lineup li:last-child{border-bottom:none;}
+  .lineup .time{font-family:'Space Mono', monospace; color:var(--paper-dim); font-size:0.85rem;}
+
+  /* ---------- TOUR DATES ---------- */
+  .dates-list{
+    display:flex; flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .date-row{
+    display:grid;
+    grid-template-columns: 76px 1fr auto;
+    align-items:center;
+    gap:24px;
+    padding:20px 4px;
+    border-bottom:1px solid var(--line);
+    transition: background 0.2s ease;
+  }
+  .date-row:hover{background:rgba(236,227,208,0.03);}
+  .date-box{
+    display:flex; flex-direction:column; align-items:center;
+    font-family:'Space Mono', monospace;
+    line-height:1.1;
+    padding:8px 4px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+  .date-box .mon{font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);}
+  .date-box .day{font-size:1.3rem; font-weight:700; color:var(--paper); margin:2px 0;}
+  .date-box .dow{font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--paper-dim);}
+  .date-box.today{border-color:var(--rust); background:rgba(193,72,30,0.12);}
+  .date-box.today .mon{color:var(--rust);}
+  .date-info h4{
+    margin:0 0 4px; font-family:'Anton', sans-serif; font-weight:400;
+    font-size:1.15rem; letter-spacing:0.01em;
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .date-info p{margin:0; font-size:0.88rem; color:var(--paper-dim); line-height:1.5;}
+  .tag{
+    font-family:'Space Mono', monospace; font-size:0.6rem; letter-spacing:0.06em;
+    text-transform:uppercase; padding:3px 9px; border-radius:100px;
+    font-weight:700; white-space:nowrap;
+  }
+  .tag.today{background:var(--rust); color:var(--paper);}
+  .tag.sold-out{background:rgba(236,227,208,0.12); color:var(--paper-dim); border:1px solid var(--line);}
+  .tag.low{background:var(--rust-dark); color:var(--paper);}
+  .tag.selling{background:var(--gold); color:var(--ink);}
+  .date-cta{
+    font-family:'Space Mono', monospace; font-size:0.78rem; letter-spacing:0.04em;
+    text-transform:uppercase; text-decoration:none;
+    color:var(--paper); border:1px solid var(--line);
+    padding:10px 18px; border-radius:var(--radius);
+    white-space:nowrap;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .date-cta:hover{border-color:var(--gold); color:var(--gold);}
+  .date-cta.disabled{
+    color:var(--paper-dim); border-color:var(--line); opacity:0.5; cursor:not-allowed;
+  }
+
+  @media (max-width: 640px){
+    .date-row{grid-template-columns:60px 1fr; grid-template-areas:"box info" "box cta";}
+    .date-box{grid-area:box;}
+    .date-info{grid-area:info;}
+    .date-cta{grid-area:cta; justify-self:start; margin-top:10px;}
+  }
+
+  /* ---------- TICKETS ---------- */
+  .tickets-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap:32px;
+  }
+  .ticket{
+    position:relative;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+  .ticket-top{
+    padding:28px 26px 22px;
+    border-bottom:2px dashed rgba(22,19,15,0.25);
+    position:relative;
+  }
+  /* perforation notches */
+  .ticket-top::before, .ticket-top::after{
+    content:""; position:absolute; bottom:-11px;
+    width:22px; height:22px; background:var(--ink);
+    border-radius:50%;
+  }
+  .ticket-top::before{left:-11px;}
+  .ticket-top::after{right:-11px;}
+  .ticket-tier{
+    font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--rust); margin-bottom:10px;
+  }
+  .ticket-name{
+    font-family:'Anton', sans-serif; font-size:1.8rem; margin:0 0 6px;
+  }
+  .ticket-price{
+    font-family:'Space Mono', monospace; font-size:2.2rem; font-weight:700;
+  }
+  .ticket-price sup{font-size:1rem; top:-1em;}
+  .ticket-body{
+    padding:26px 26px 30px;
+    flex:1;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .ticket-body ul{margin:0; padding:0; list-style:none; flex:1;}
+  .ticket-body li{
+    font-size:0.92rem; line-height:1.5; padding:8px 0 8px 22px;
+    position:relative; color:var(--ink-soft);
+  }
+  .ticket-body li::before{
+    content:"→"; position:absolute; left:0; color:var(--rust); font-weight:700;
+  }
+  .ticket-pp{
+    display:block; text-align:center;
+    font-family:'Space Mono', monospace; font-size:0.85rem; letter-spacing:0.05em;
+    text-transform:uppercase; text-decoration:none;
+    background:var(--ink); color:var(--paper);
+    padding:15px; border-radius:var(--radius);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .ticket-pp:hover{background:var(--rust-dark); transform:translateY(-2px);}
+  .ticket.featured .ticket-top{background:var(--gold); border-bottom-color:rgba(22,19,15,0.3);}
+  .ticket.featured .ticket-top::before, .ticket.featured .ticket-top::after{background:var(--ink);}
+  .featured-flag{
+    position:absolute; top:14px; right:-34px;
+    background:var(--rust); color:var(--paper);
+    font-family:'Space Mono', monospace; font-size:0.65rem; letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:5px 40px; transform:rotate(38deg);
+  }
+
+  .paypal-note{
+    margin-top:36px;
+    display:flex; align-items:flex-start; gap:14px;
+    font-family:'Space Mono', monospace; font-size:0.82rem; line-height:1.6;
+    color:var(--paper-dim);
+    border:1px solid var(--line); padding:20px 22px;
+    background:rgba(36,80,74,0.12);
+  }
+  .paypal-note .badge{
+    flex-shrink:0;
+    background:var(--teal); color:var(--paper);
+    font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding:6px 10px; border-radius:100px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--ink-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .faq-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px 60px;}
+  .faq-item h4{
+    font-family:'Anton', sans-serif; font-size:1.2rem; margin:0 0 8px; color:var(--gold);
+  }
+  .faq-item p{margin:0; color:var(--paper-dim); line-height:1.65; font-size:0.96rem;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:60px 24px 40px;}
+  .footer-grid{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;
+    border-top:1px solid var(--line); padding-top:32px;
+  }
+  .footer-mark{font-family:'Anton', sans-serif; font-size:1.4rem;}
+  .footer-mark span{color:var(--rust);}
+  .footer-meta{font-family:'Space Mono', monospace; font-size:0.75rem; color:var(--paper-dim); line-height:1.8;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 800px){
+    .about-grid{grid-template-columns:1fr;}
+    .faq-grid{grid-template-columns:1fr;}
+    .hero{padding:80px 20px 60px;}
+    .section{padding:64px 20px;}
+    .hero-fact{padding:14px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">LOGAN RYAN <span>BAND</span></a>
+    <a href="#tickets" class="nav-cta">Get Tickets</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="halftone"></div>
+  <div class="hero-inner">
+    <span class="stamp">On Tour Now</span>
+    <h1 class="display">Logan Ryan<span class="accent">Band</span></h1>
+    <p class="hero-sub">Eight cities, one summer — bring your people, bring your voice, leave with your ears ringing.</p>
+
+    <div class="hero-facts" id="heroFacts">
+      <div class="hero-fact">
+        <span class="k" id="heroNextK">Next Show</span>
+        <span class="v" id="heroNextDate">Loading…</span>
+      </div>
+      <div class="hero-fact">
+        <span class="k">Venue</span>
+        <span class="v" id="heroNextVenue">—</span>
+      </div>
+      <div class="hero-fact">
+        <span class="k">Time</span>
+        <span class="v" id="heroNextTime">—</span>
+      </div>
+      <div class="hero-fact">
+        <span class="k">Payment</span>
+        <span class="v">PayPal Only</span>
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#dates" class="btn-primary">See Tour Dates</a>
+      <a href="#tickets" class="btn-ghost">Buy Tickets</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="dates">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">01</span>
+      <h2 class="section-title">Tour Dates</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="dates-list" id="datesList">
+      <!-- Populated automatically by JS from the showsData array below.
+           Past shows drop off on their own once the date has passed. -->
+    </div>
+    <noscript>
+      <p style="font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--paper-dim);">
+        Enable JavaScript to see current tour dates, or contact us directly for the latest schedule.
+      </p>
+    </noscript>
+  </div>
+</section>
+
+<section class="about" id="info">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="section-head">
+        <span class="section-num mono">02</span>
+        <h2 class="section-title">The Tour</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p>The Logan Ryan Band brings their signature blend of gritty roots-rock and soul-soaked storytelling across eight cities this season. Expect a set pulled from their latest record plus a few surprises at every stop — this is the kind of show you tell people about for years.</p>
+      <p>Most club dates are standing-room floor with a limited VIP area; the Redwest Festival stop in Salt Lake City runs alongside a full multi-artist lineup. Ages and entry requirements vary by venue — check the venue listing for each city.</p>
+    </div>
+    <div class="lineup">
+      <h3>Redwest Festival — Oct 16–17</h3>
+      <ul>
+        <li><span>Friday</span><span class="time mono">Logan Ryan Band, Ella Langley, Shaboozey +more</span></li>
+        <li><span>Saturday</span><span class="time mono">Logan Ryan Band, Ella Langley, Sam Barber +more</span></li>
+        <li><span>Venue</span><span class="time mono">Utah State Fairpark</span></li>
+        <li><span>Set times</span><span class="time mono">TBA</span></li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tickets">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">03</span>
+      <h2 class="section-title">Tickets</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="paypal-note" id="buyingForBanner" style="margin-top:0; margin-bottom:16px; border-color:var(--gold); background:rgba(219,165,61,0.1);">
+      <span class="badge" style="background:var(--gold); color:var(--ink);">Now Selling</span>
+      <span id="buyingForText">Loading next available show…</span>
+    </div>
+
+    <div class="paypal-note" style="margin-top:0; margin-bottom:36px;">
+      <span class="badge">Step 1</span>
+      <span>
+        Pick your tier below, then write the <strong>city and date</strong> of the show you're attending
+        (e.g. "Denver, CO — Jul 17") along with your full name and email in the PayPal payment note.
+        That's how we know which show to confirm you for.
+      </span>
+    </div>
+
+    <div class="tickets-grid">
+      <!-- GA TICKET -->
+      <div class="ticket">
+        <div class="ticket-top">
+          <div class="ticket-tier mono">Tier 01</div>
+          <h3 class="ticket-name">General Admission</h3>
+          <div class="ticket-price mono">$35<sup>.00</sup></div>
+        </div>
+        <div class="ticket-body">
+          <ul>
+            <li>Standing-room floor access</li>
+            <li>Entry from doors at 7:00 PM</li>
+            <li>Full show, all support acts</li>
+          </ul>
+          <!--
+            REPLACE THIS LINK: swap "YOUR-PAYPAL-USERNAME" for your real
+            PayPal.me username, and adjust the /35 amount if the price changes.
+            Example: https://paypal.me/loganryanband/35
+          -->
+          <a class="ticket-pp" href="https://paypal.me/SamuelRamos202/35" target="_blank" rel="noopener">
+            Pay with PayPal →
+          </a>
+        </div>
+      </div>
+
+      <!-- VIP TICKET -->
+      <div class="ticket featured">
+        <span class="featured-flag">Best Seat</span>
+        <div class="ticket-top">
+          <div class="ticket-tier mono">Tier 02</div>
+          <h3 class="ticket-name">VIP Balcony</h3>
+          <div class="ticket-price mono">$75<sup>.00</sup></div>
+        </div>
+        <div class="ticket-body">
+          <ul>
+            <li>Reserved balcony seating</li>
+            <li>Early entry at 6:30 PM</li>
+            <li>Merch item included</li>
+            <li>Private bar access</li>
+          </ul>
+          <!-- REPLACE: same PayPal.me username, amount set to 75 -->
+          <a class="ticket-pp" href="https://paypal.me/SamuelRamos202/75" target="_blank" rel="noopener">
+            Pay with PayPal →
+          </a>
+        </div>
+      </div>
+
+      <!-- GROUP TICKET -->
+      <div class="ticket">
+        <div class="ticket-top">
+          <div class="ticket-tier mono">Tier 03</div>
+          <h3 class="ticket-name">Squad Pass (x4)</h3>
+          <div class="ticket-price mono">$120<sup>.00</sup></div>
+        </div>
+        <div class="ticket-body">
+          <ul>
+            <li>4 general admission entries</li>
+            <li>One transaction, one confirmation</li>
+            <li>Save $20 vs. buying separately</li>
+          </ul>
+          <!-- REPLACE: same PayPal.me username, amount set to 120 -->
+          <a class="ticket-pp" href="https://paypal.me/SamuelRamos202/120" target="_blank" rel="noopener">
+            Pay with PayPal →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="paypal-note">
+      <span class="badge">Note</span>
+      <span>
+        Tickets are sold exclusively through PayPal. After paying, include your full name and email
+        in the PayPal payment note — your e-ticket confirmation will be sent to the email
+        linked to that PayPal payment within 24 hours. No other payment methods accepted.
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="faq section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">04</span>
+      <h2 class="section-title">Good to Know</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>How do I receive my ticket?</h4>
+        <p>After your PayPal payment is confirmed, an e-ticket / entry confirmation will be emailed to you within 24 hours. Bring a photo ID that matches the name on your PayPal payment note.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is this show all ages?</h4>
+        <p>This is an 18+ event. Valid government-issued photo ID is required at the door for entry.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What's your refund policy?</h4>
+        <p>All ticket sales are final. In the event the show is postponed or cancelled, refund instructions will be emailed to all ticket holders.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I pay another way?</h4>
+        <p>No — PayPal is the only accepted payment method for this event. Please do not send payment through any other platform.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-mark display">LOGAN RYAN <span>BAND</span></div>
+    </div>
+    <div class="footer-meta mono">
+      Questions? [saintsr544@email.com]<br>
+      Payments via https://paypal.me/SamuelRamos202<br>
+      © 2026 Logan Ryan Band. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ---------------------------------------------------------------
+  // SHOW DATA — edit this list to add, remove, or update tour dates.
+  // Dates use YYYY-MM-DD. For multi-day events, set "end" too.
+  // Past shows (end date before today) are dropped automatically
+  // every time the page loads — no manual cleanup needed.
+  // tagClass options: "sold-out", "low", "selling", or omit for none.
+  // ---------------------------------------------------------------
+  const showsData = [
+    { start:"2026-07-04", time:"6:00 PM", city:"Concan, TX",
+      venue:"House Pasture Cattle Company" },
+
+    { start:"2026-07-16", time:"8:00 PM", city:"Durango, CO",
+      venue:"Wild Horse Saloon", soldOut:true },
+
+    { start:"2026-07-17", time:"8:00 PM", city:"Denver, CO",
+      venue:"Federal Theatre" },
+
+    { start:"2026-07-18", time:"10:00 PM", city:"Cheyenne, WY",
+      venue:"Lincoln Theatre Cheyenne", tag:"Less than 4% left", tagClass:"low" },
+
+    { start:"2026-08-14", time:"8:30 PM", city:"Helotes, TX",
+      venue:"John T. Floore's Country Store", tag:"Less than 3% left", tagClass:"low" },
+
+    { start:"2026-10-16", time:"Time TBA", city:"Salt Lake City, UT",
+      venue:"Redwest Festival · Utah State Fairpark",
+      note:"Friday Pass — w/ Ella Langley, Shaboozey & more",
+      tag:"Selling Fast", tagClass:"selling" },
+
+    { start:"2026-10-16", end:"2026-10-17", time:"Time TBA", city:"Salt Lake City, UT",
+      venue:"Redwest Festival · Utah State Fairpark",
+      note:"2-Day Pass — w/ Ella Langley, Sam Barber & more",
+      tag:"Selling Fast", tagClass:"selling" },
+
+    { start:"2026-11-13", time:"8:15 PM", city:"Manhattan, KS",
+      venue:"The Hat - Manhattan" }
+  ];
+
+  function dayStart(d){ const c = new Date(d); c.setHours(0,0,0,0); return c; }
+  const today = dayStart(new Date());
+
+  function parseDate(str){ return dayStart(new Date(str + "T00:00:00")); }
+
+  const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  function fmtRange(startDate, endDate){
+    const mon = MON[startDate.getMonth()];
+    if (endDate && endDate.getTime() !== startDate.getTime()){
+      return { mon, day: startDate.getDate() + "–" + endDate.getDate(),
+                dow: DOW[startDate.getDay()] + "–" + DOW[endDate.getDay()] };
+    }
+    return { mon, day: String(startDate.getDate()), dow: DOW[startDate.getDay()] };
+  }
+
+  // Build working list: parse dates, compute end, filter out anything fully in the past.
+  const shows = showsData.map(s => {
+    const start = parseDate(s.start);
+    const end = s.end ? parseDate(s.end) : start;
+    return Object.assign({}, s, { startDate: start, endDate: end });
+  }).filter(s => s.endDate.getTime() >= today.getTime())
+    .sort((a,b) => a.startDate - b.startDate);
+
+  // ---------- Render Tour Dates list ----------
+  const list = document.getElementById("datesList");
+  if (list){
+    list.innerHTML = "";
+    shows.forEach(s => {
+      const isToday = s.startDate.getTime() === today.getTime();
+      const { mon, day, dow } = fmtRange(s.startDate, s.endDate);
+
+      const row = document.createElement("div");
+      row.className = "date-row";
+
+      const box = document.createElement("div");
+      box.className = "date-box" + (isToday ? " today" : "");
+      box.innerHTML = `<span class="mon">${mon}</span><span class="day">${day}</span><span class="dow">${dow}</span>`;
+
+      const info = document.createElement("div");
+      info.className = "date-info";
+      let tagHtml = "";
+      if (s.soldOut) tagHtml = `<span class="tag sold-out">Sold Out</span>`;
+      else if (isToday) tagHtml = `<span class="tag today">Today</span>`;
+      else if (s.tag) tagHtml = `<span class="tag ${s.tagClass || ''}">${s.tag}</span>`;
+
+      const detailLine = [s.venue, s.time].filter(Boolean).join(" · ") +
+        (s.note ? " · " + s.note : "");
+
+      info.innerHTML = `<h4>${s.city} ${tagHtml}</h4><p>${detailLine}</p>`;
+
+      let cta;
+      if (s.soldOut){
+        cta = document.createElement("span");
+        cta.className = "date-cta disabled";
+        cta.textContent = "Sold Out";
+      } else {
+        cta = document.createElement("a");
+        cta.className = "date-cta";
+        cta.href = "#tickets";
+        cta.textContent = "Get Tickets →";
+      }
+
+      row.appendChild(box);
+      row.appendChild(info);
+      row.appendChild(cta);
+      list.appendChild(row);
+    });
+
+    if (shows.length === 0){
+      list.innerHTML = `<p style="font-family:'Space Mono',monospace; color:var(--paper-dim); padding:24px 4px;">No upcoming dates announced right now — check back soon.</p>`;
+    }
+  }
+
+  // ---------- Determine next available (bookable) show ----------
+  const nextAvailable = shows.find(s => !s.soldOut) || null;
+  const nextAny = shows[0] || null;
+
+  // ---------- Hero: Next Show ----------
+  const heroK = document.getElementById("heroNextK");
+  const heroDate = document.getElementById("heroNextDate");
+  const heroVenue = document.getElementById("heroNextVenue");
+  const heroTime = document.getElementById("heroNextTime");
+
+  if (nextAny){
+    const isToday = nextAny.startDate.getTime() === today.getTime();
+    const { mon, day } = fmtRange(nextAny.startDate, nextAny.endDate);
+    if (heroK) heroK.textContent = "Next Show";
+    if (heroDate) heroDate.textContent = (isToday ? "Today · " : "") + mon + " " + day;
+    if (heroVenue) heroVenue.textContent = nextAny.city + (nextAny.soldOut ? " (Sold Out)" : "");
+    if (heroTime) heroTime.textContent = nextAny.time;
+  } else {
+    if (heroK) heroK.textContent = "Tour";
+    if (heroDate) heroDate.textContent = "TBA";
+    if (heroVenue) heroVenue.textContent = "—";
+    if (heroTime) heroTime.textContent = "—";
+  }
+
+  // ---------- Tickets: "Now Selling" banner ----------
+  const buyingForText = document.getElementById("buyingForText");
+  if (buyingForText){
+    if (nextAvailable){
+      const isToday = nextAvailable.startDate.getTime() === today.getTime();
+      const { mon, day } = fmtRange(nextAvailable.startDate, nextAvailable.endDate);
+      const dateLabel = (isToday ? "Today, " : "") + mon + " " + day;
+      buyingForText.innerHTML = `Tickets below are for our next available show: <strong>${nextAvailable.city} — ${dateLabel}</strong>, ${nextAvailable.venue} (${nextAvailable.time}). Buying for a later date on the tour instead? Just note that show's city and date in your PayPal payment note.`;
+    } else {
+      buyingForText.textContent = "No shows are currently available for purchase — check back soon or contact us for the latest schedule.";
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
