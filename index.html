@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Logan Ryan Band — Live at The Ironside | Tickets</title>
+<title>Hunter Mett — Tickets &amp; Fan Card | 2026 Tour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -354,6 +354,135 @@
     padding:6px 10px; border-radius:100px;
   }
 
+  /* ---------- FAN CARD ---------- */
+  .fc-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:start;
+  }
+  .fc-label{
+    font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:18px;
+  }
+
+  .fc-card{
+    width:100%; max-width:360px; aspect-ratio: 1.586 / 1;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 45%, var(--ink) 100%);
+    border:1px solid rgba(219,165,61,0.35);
+    border-radius:8px;
+    padding:22px 24px;
+    position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:space-between;
+    box-shadow: var(--shadow);
+    margin-bottom:32px;
+  }
+  .fc-card::before{
+    content:""; position:absolute; inset:0;
+    background-image: radial-gradient(circle, rgba(236,227,208,0.5) 1px, transparent 1.4px);
+    background-size:7px 7px; opacity:0.12; mix-blend-mode:overlay; pointer-events:none;
+  }
+  .fc-card::after{
+    content:"HM"; position:absolute; right:-6px; bottom:-16px;
+    font-family:'Anton', sans-serif; font-size:6rem; line-height:1;
+    color:rgba(219,165,61,0.06); pointer-events:none;
+  }
+  .fc-card-top{display:flex; justify-content:space-between; align-items:flex-start; position:relative; z-index:1;}
+  .fc-card-brand{font-family:'Anton', sans-serif; font-size:1.05rem; letter-spacing:0.03em; color:var(--gold); line-height:1;}
+  .fc-card-brand span{
+    display:block; font-family:'Space Mono', monospace; font-size:0.6rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--paper-dim); margin-top:5px; font-weight:700;
+  }
+  .fc-card-chip{width:32px; height:24px; border-radius:4px; background:linear-gradient(135deg, var(--gold) 0%, #f0c877 100%); opacity:0.85;}
+  .fc-card-bottom{position:relative; z-index:1;}
+  .fc-card-member-label{font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--paper-dim); margin-bottom:4px;}
+  .fc-card-member-name{font-family:'Anton', sans-serif; font-size:1.3rem; color:var(--paper); letter-spacing:0.02em;}
+  .fc-card-number{font-size:0.65rem; letter-spacing:0.18em; color:rgba(219,165,61,0.6); margin-top:6px;}
+
+  .fc-perks{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .fc-perks li{display:flex; align-items:flex-start; gap:12px; font-size:0.9rem; color:var(--paper-dim); line-height:1.5;}
+  .fc-perk-icon{
+    width:20px; height:20px; border-radius:50%; background:var(--gold); color:var(--ink);
+    font-size:0.62rem; font-weight:800; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; margin-top:1px;
+  }
+
+  .fc-tiers{display:flex; flex-direction:column; gap:12px; margin-bottom:28px;}
+  .fc-tier{
+    border:1.5px solid var(--line); border-radius:var(--radius); padding:16px 18px;
+    cursor:pointer; display:flex; align-items:center; gap:16px; position:relative;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  .fc-tier:hover{border-color:var(--paper-dim);}
+  .fc-tier.selected{border-color:var(--gold); background:rgba(219,165,61,0.07);}
+  .fc-radio{
+    width:18px; height:18px; border-radius:50%; border:2px solid var(--line);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition: border-color 0.18s ease;
+  }
+  .fc-tier.selected .fc-radio{border-color:var(--gold);}
+  .fc-radio-dot{width:8px; height:8px; border-radius:50%; background:var(--gold); opacity:0; transition:opacity 0.18s ease;}
+  .fc-tier.selected .fc-radio-dot{opacity:1;}
+  .fc-tier-info{flex:1;}
+  .fc-tier-name{font-weight:700; font-size:0.92rem; color:var(--paper);}
+  .fc-tier-desc{font-size:0.76rem; color:var(--paper-dim); margin-top:2px;}
+  .fc-tier-price{font-size:1.2rem; color:var(--gold);}
+  .fc-tier-badge{
+    position:absolute; top:-1px; right:16px; transform:translateY(-50%);
+    font-family:'Space Mono', monospace; font-size:0.6rem; letter-spacing:0.1em;
+    text-transform:uppercase; background:var(--rust); color:var(--paper);
+    padding:3px 9px; border-radius:2px;
+  }
+
+  .fc-pay-panel{border:1px solid var(--line); border-radius:var(--radius); padding:26px; background:rgba(236,227,208,0.03);}
+  .fc-pay-row{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;}
+  .fc-pay-label{font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--paper-dim);}
+  .fc-secure{
+    font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal);
+    border:1px solid rgba(36,80,74,0.6); padding:3px 9px; border-radius:100px; background:rgba(36,80,74,0.15);
+  }
+  .fc-pay-email{font-size:0.92rem; color:var(--paper); margin-bottom:20px; word-break:break-all;}
+
+  .fc-total-row{
+    display:flex; justify-content:space-between; align-items:center; padding:14px 0;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:20px;
+  }
+  .fc-total-label{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper-dim);}
+  .fc-total-value{font-family:'Anton', sans-serif; font-size:2rem; color:var(--gold); letter-spacing:0.01em;}
+
+  .fc-field-label{display:block; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper-dim); margin-bottom:8px;}
+  .fc-field{
+    width:100%; background:var(--ink); border:1.5px solid var(--line); border-radius:var(--radius);
+    padding:12px 14px; font-family:'Archivo', sans-serif; font-size:0.95rem; color:var(--paper);
+    outline:none; margin-bottom:6px; transition:border-color 0.18s ease;
+  }
+  .fc-field::placeholder{color:rgba(236,227,208,0.3);}
+  .fc-field:focus{border-color:var(--gold);}
+  .fc-error{color:var(--rust); font-size:0.75rem; margin-bottom:14px;}
+
+  .fc-pay-btn{
+    display:block; width:100%; text-align:center; background:var(--rust); color:var(--paper);
+    border:1px solid var(--rust); border-radius:var(--radius); padding:16px;
+    font-family:'Space Mono', monospace; font-size:0.9rem; letter-spacing:0.05em;
+    text-transform:uppercase; font-weight:700; cursor:pointer; margin-bottom:18px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .fc-pay-btn:hover{background:var(--rust-dark); transform:translateY(-2px);}
+
+  .fc-note-block{margin-bottom:16px;}
+  .fc-note-label{font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper-dim); margin-bottom:8px;}
+  .fc-note-copy{display:flex; align-items:center; gap:10px; border:1px dashed var(--line); border-radius:var(--radius); padding:10px 12px;}
+  .fc-note-copy span{flex:1; font-size:0.78rem; color:var(--paper-dim); word-break:break-word;}
+  .fc-copy-btn{
+    flex-shrink:0; background:transparent; border:1px solid var(--line); color:var(--paper);
+    padding:6px 12px; border-radius:var(--radius); font-size:0.7rem; letter-spacing:0.06em;
+    text-transform:uppercase; cursor:pointer; transition:border-color 0.18s ease, color 0.18s ease;
+  }
+  .fc-copy-btn:hover{border-color:var(--gold); color:var(--gold);}
+
+  .fc-pay-fine{font-size:0.72rem; color:var(--paper-dim); line-height:1.6; text-align:center;}
+
+  @media (max-width: 800px){
+    .fc-grid{grid-template-columns:1fr;}
+  }
+
   /* ---------- FAQ ---------- */
   .faq{background:var(--ink-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .faq-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px 60px;}
@@ -386,7 +515,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-mark">LOGAN RYAN <span>BAND</span></a>
+    <a href="#top" class="nav-mark">HUNTER <span>METT</span></a>
     <a href="#tickets" class="nav-cta">Get Tickets</a>
   </div>
 </nav>
@@ -395,8 +524,8 @@
   <div class="halftone"></div>
   <div class="hero-inner">
     <span class="stamp">On Tour Now</span>
-    <h1 class="display">Logan Ryan<span class="accent">Band</span></h1>
-    <p class="hero-sub">Eight cities, one summer — bring your people, bring your voice, leave with your ears ringing.</p>
+    <h1 class="display">Hunter<span class="accent">Mett</span></h1>
+    <p class="hero-sub">Six cities this fall — bring your people, bring your voice, leave with your ears ringing.</p>
 
     <div class="hero-facts" id="heroFacts">
       <div class="hero-fact">
@@ -420,6 +549,7 @@
     <div class="hero-cta-row">
       <a href="#dates" class="btn-primary">See Tour Dates</a>
       <a href="#tickets" class="btn-ghost">Buy Tickets</a>
+      <a href="#fancard" class="btn-ghost">Get Fan Card</a>
     </div>
   </div>
 </header>
@@ -452,15 +582,15 @@
         <h2 class="section-title">The Tour</h2>
         <div class="section-rule"></div>
       </div>
-      <p>The Logan Ryan Band brings their signature blend of gritty roots-rock and soul-soaked storytelling across eight cities this season. Expect a set pulled from their latest record plus a few surprises at every stop — this is the kind of show you tell people about for years.</p>
-      <p>Most club dates are standing-room floor with a limited VIP area; the Redwest Festival stop in Salt Lake City runs alongside a full multi-artist lineup. Ages and entry requirements vary by venue — check the venue listing for each city.</p>
+      <p>Hunter Mett heads out this fall for a run of intimate club dates, two nights opening for Dermot Kennedy, and an official AmericanaFest showcase in Nashville. Expect a stripped-back, story-driven set built around the songs that got this all started — plus a few that have never been played live before.</p>
+      <p>The Minneapolis and Milwaukee stops are support dates on Dermot Kennedy's tour, so entry and doors follow the headliner venue's policies. The Montgomery, St. Petersburg, and Tallahassee shows are Hunter's own headline stops with the GA/VIP tiers below. Ages and entry requirements vary by venue — check the venue listing for each city.</p>
     </div>
     <div class="lineup">
-      <h3>Redwest Festival — Oct 16–17</h3>
+      <h3>AmericanaFest 2026 — Sep 18</h3>
       <ul>
-        <li><span>Friday</span><span class="time mono">Logan Ryan Band, Ella Langley, Shaboozey +more</span></li>
-        <li><span>Saturday</span><span class="time mono">Logan Ryan Band, Ella Langley, Sam Barber +more</span></li>
-        <li><span>Venue</span><span class="time mono">Utah State Fairpark</span></li>
+        <li><span>Festival</span><span class="time mono">AmericanaFest 2026</span></li>
+        <li><span>City</span><span class="time mono">Nashville, TN</span></li>
+        <li><span>Format</span><span class="time mono">Official showcase lineup</span></li>
         <li><span>Set times</span><span class="time mono">TBA</span></li>
       </ul>
 
@@ -484,8 +614,8 @@
     <div class="paypal-note" style="margin-top:0; margin-bottom:36px;">
       <span class="badge">Step 1</span>
       <span>
-        Pick your tier below, then write the <strong>city and date</strong> of the show you're attending
-        (e.g. "Denver, CO — Jul 17") along with your full name and email in the PayPal payment note.
+        Buying a ticket? Write the <strong>city and date</strong> of the show you're attending
+        (e.g. "Montgomery, AL — Nov 16") along with your full name and email in the PayPal payment note.
         That's how we know which show to confirm you for.
       </span>
     </div>
@@ -501,13 +631,13 @@
         <div class="ticket-body">
           <ul>
             <li>Standing-room floor access</li>
-            <li>Entry from doors at 7:00 PM</li>
+            <li>Entry from doors (time varies by city)</li>
             <li>Full show, all support acts</li>
           </ul>
           <!--
-            REPLACE THIS LINK: swap "YOUR-PAYPAL-USERNAME" for your real
-            PayPal.me username, and adjust the /35 amount if the price changes.
-            Example: https://paypal.me/loganryanband/35
+            REPLACE THIS LINK: swap the PayPal.me username for your real one
+            if it changes, and adjust the /35 amount if the price changes.
+            Example: https://paypal.me/YOUR-USERNAME/35
           -->
           <a class="ticket-pp" href="https://paypal.me/SamuelRamos202/35" target="_blank" rel="noopener">
             Pay with PayPal →
@@ -526,7 +656,7 @@
         <div class="ticket-body">
           <ul>
             <li>Reserved balcony seating</li>
-            <li>Early entry at 6:30 PM</li>
+            <li>Early entry (30 min before doors)</li>
             <li>Merch item included</li>
             <li>Private bar access</li>
           </ul>
@@ -564,7 +694,112 @@
         Tickets are sold exclusively through PayPal. After paying, include your full name and email
         in the PayPal payment note — your e-ticket confirmation will be sent to the email
         linked to that PayPal payment within 24 hours. No other payment methods accepted.
+        Looking for the Fan Card instead? Build yours below.
       </span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="fancard">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">04</span>
+      <h2 class="section-title">Fan Card</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="fc-grid">
+      <!-- LEFT: live card preview + perks -->
+      <div class="fc-preview-col">
+        <p class="fc-label mono">Your Card Preview</p>
+
+        <div class="fc-card">
+          <div class="fc-card-top">
+            <div class="fc-card-brand">
+              HUNTER METT<span>Official Fan Card</span>
+            </div>
+            <div class="fc-card-chip"></div>
+          </div>
+          <div class="fc-card-bottom">
+            <p class="fc-card-member-label mono">Member Name</p>
+            <p class="fc-card-member-name" id="fcNamePreview">Your Name Here</p>
+            <p class="fc-card-number mono">HM · 2026 · MEMBER</p>
+          </div>
+        </div>
+
+        <ul class="fc-perks">
+          <li><span class="fc-perk-icon">✓</span> Wallet-sized physical fan card mailed to you</li>
+          <li><span class="fc-perk-icon">✓</span> Your name printed on the card</li>
+          <li><span class="fc-perk-icon">✓</span> Official member number</li>
+          <li><span class="fc-perk-icon">✓</span> Digital card copy sent by email</li>
+          <li><span class="fc-perk-icon">✓</span> First notice on shows, merch drops &amp; exclusives</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: tier picker + PayPal checkout panel -->
+      <div class="fc-checkout-col">
+        <p class="fc-label mono">Pick Your Membership</p>
+
+        <div class="fc-tiers" id="fcTiers">
+          <div class="fc-tier selected" data-price="35" data-tier="Fan Card" onclick="fcSelectTier(this)">
+            <div class="fc-radio"><div class="fc-radio-dot"></div></div>
+            <div class="fc-tier-info">
+              <p class="fc-tier-name">Fan Card</p>
+              <p class="fc-tier-desc">Physical card + digital copy</p>
+            </div>
+            <p class="fc-tier-price mono">$35</p>
+          </div>
+
+          <div class="fc-tier" data-price="75" data-tier="Fan Card + Signed Photo" onclick="fcSelectTier(this)">
+            <span class="fc-tier-badge">Popular</span>
+            <div class="fc-radio"><div class="fc-radio-dot"></div></div>
+            <div class="fc-tier-info">
+              <p class="fc-tier-name">Fan Card + Signed Photo</p>
+              <p class="fc-tier-desc">Card plus a signed photo</p>
+            </div>
+            <p class="fc-tier-price mono">$75</p>
+          </div>
+
+          <div class="fc-tier" data-price="100" data-tier="VIP Fan Bundle" onclick="fcSelectTier(this)">
+            <div class="fc-radio"><div class="fc-radio-dot"></div></div>
+            <div class="fc-tier-info">
+              <p class="fc-tier-name">VIP Fan Bundle</p>
+              <p class="fc-tier-desc">Card + signed photo + sticker pack</p>
+            </div>
+            <p class="fc-tier-price mono">$100</p>
+          </div>
+        </div>
+
+        <!-- REPLACE: same PayPal.me username used across the site -->
+        <div class="fc-pay-panel">
+          <div class="fc-pay-row">
+            <span class="fc-pay-label mono">Send Payment To</span>
+            <span class="fc-secure mono">Secure · PayPal</span>
+          </div>
+          <p class="fc-pay-email mono">paypal.me/SamuelRamos202</p>
+
+          <div class="fc-total-row">
+            <span class="fc-total-label mono">Total Due</span>
+            <span class="fc-total-value mono" id="fcTotal">$35.00</span>
+          </div>
+
+          <label class="fc-field-label mono" for="fcName">Your Name (for the card)</label>
+          <input class="fc-field" id="fcName" type="text" placeholder="e.g. Jordan Blake" oninput="fcUpdateName(this.value)" autocomplete="name" />
+          <p class="fc-error mono" id="fcError" style="display:none;"></p>
+
+          <button class="fc-pay-btn" id="fcPayBtn" onclick="fcGoPayPal()">Pay with PayPal →</button>
+
+          <div class="fc-note-block">
+            <p class="fc-note-label mono">Paste this into your PayPal payment note</p>
+            <div class="fc-note-copy">
+              <span id="fcNoteText" class="mono">Hunter Mett Fan Card – Fan Card – Name: —</span>
+              <button class="fc-copy-btn mono" type="button" onclick="fcCopyNote()">Copy</button>
+            </div>
+          </div>
+
+          <p class="fc-pay-fine mono">You'll be taken to PayPal to complete payment. Your fan card ships once payment is confirmed.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -572,7 +807,7 @@
 <section class="faq section">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">04</span>
+      <span class="section-num mono">05</span>
       <h2 class="section-title">Good to Know</h2>
       <div class="section-rule"></div>
     </div>
@@ -591,7 +826,11 @@
       </div>
       <div class="faq-item">
         <h4>Can I pay another way?</h4>
-        <p>No — PayPal is the only accepted payment method for this event. Please do not send payment through any other platform.</p>
+        <p>No. PayPal is the only accepted payment method for tickets and the Fan Card. Please do not send payment through any other platform.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What do I get with the Fan Card?</h4>
+        <p>Use the Fan Card builder above to pick your tier, enter your name, and complete payment via PayPal — the note field there gives you a ready-made line to paste into your PayPal payment. Your digital card arrives by email within 24 hours; the physical card ships to the mailing address you include in that note.</p>
       </div>
     </div>
   </div>
@@ -600,12 +839,12 @@
 <footer>
   <div class="wrap footer-grid">
     <div>
-      <div class="footer-mark display">LOGAN RYAN <span>BAND</span></div>
+      <div class="footer-mark display">HUNTER <span>METT</span></div>
     </div>
     <div class="footer-meta mono">
       Questions? [saintsr544@email.com]<br>
       Payments via https://paypal.me/SamuelRamos202<br>
-      © 2026 Logan Ryan Band. All rights reserved.
+      © 2026 Hunter Mett. All rights reserved.
     </div>
   </div>
 </footer>
@@ -620,33 +859,23 @@
   // tagClass options: "sold-out", "low", "selling", or omit for none.
   // ---------------------------------------------------------------
   const showsData = [
-    { start:"2026-07-04", time:"6:00 PM", city:"Concan, TX",
-      venue:"House Pasture Cattle Company" },
+    { start:"2026-09-04", time:"Time TBA", city:"Minneapolis, MN",
+      venue:"The Armory", note:"w/ Dermot Kennedy" },
 
-    { start:"2026-07-16", time:"8:00 PM", city:"Durango, CO",
-      venue:"Wild Horse Saloon", soldOut:true },
+    { start:"2026-09-05", time:"Time TBA", city:"Milwaukee, WI",
+      venue:"Landmark Credit Union Live", note:"Same tour, w/ Dermot Kennedy" },
 
-    { start:"2026-07-17", time:"8:00 PM", city:"Denver, CO",
-      venue:"Federal Theatre" },
+    { start:"2026-09-18", time:"Time TBA", city:"Nashville, TN",
+      venue:"AmericanaFest 2026" },
 
-    { start:"2026-07-18", time:"10:00 PM", city:"Cheyenne, WY",
-      venue:"Lincoln Theatre Cheyenne", tag:"Less than 4% left", tagClass:"low" },
+    { start:"2026-11-16", time:"Time TBA", city:"Montgomery, AL",
+      venue:"Montgomery Performing Arts Centre" },
 
-    { start:"2026-08-14", time:"8:30 PM", city:"Helotes, TX",
-      venue:"John T. Floore's Country Store", tag:"Less than 3% left", tagClass:"low" },
+    { start:"2026-11-18", time:"Time TBA", city:"St. Petersburg, FL",
+      venue:"Jannus Live" },
 
-    { start:"2026-10-16", time:"Time TBA", city:"Salt Lake City, UT",
-      venue:"Redwest Festival · Utah State Fairpark",
-      note:"Friday Pass — w/ Ella Langley, Shaboozey & more",
-      tag:"Selling Fast", tagClass:"selling" },
-
-    { start:"2026-10-16", end:"2026-10-17", time:"Time TBA", city:"Salt Lake City, UT",
-      venue:"Redwest Festival · Utah State Fairpark",
-      note:"2-Day Pass — w/ Ella Langley, Sam Barber & more",
-      tag:"Selling Fast", tagClass:"selling" },
-
-    { start:"2026-11-13", time:"8:15 PM", city:"Manhattan, KS",
-      venue:"The Hat - Manhattan" }
+    { start:"2026-11-19", time:"Time TBA", city:"Tallahassee, FL",
+      venue:"Adderley Amphitheater" }
   ];
 
   function dayStart(d){ const c = new Date(d); c.setHours(0,0,0,0); return c; }
@@ -761,6 +990,94 @@
     }
   }
 })();
+</script>
+
+<script>
+  let fcPrice = 35;
+  let fcTierName = "Fan Card";
+
+  function fcSelectTier(el){
+    document.querySelectorAll("#fcTiers .fc-tier").forEach(t => t.classList.remove("selected"));
+    el.classList.add("selected");
+    fcPrice = parseInt(el.dataset.price, 10);
+    fcTierName = el.dataset.tier;
+    document.getElementById("fcTotal").textContent = "$" + fcPrice + ".00";
+    fcUpdateNote();
+  }
+
+  function fcUpdateName(val){
+    document.getElementById("fcNamePreview").textContent = val.trim() || "Your Name Here";
+    fcUpdateNote();
+  }
+
+  function fcUpdateNote(){
+    const name = document.getElementById("fcName").value.trim() || "—";
+    document.getElementById("fcNoteText").textContent =
+      "Hunter Mett Fan Card – " + fcTierName + " – Name: " + name;
+  }
+
+  function fcCopyNote(){
+    const text = document.getElementById("fcNoteText").textContent;
+    const btn = document.querySelector(".fc-copy-btn");
+    const done = () => {
+      const original = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(done);
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+
+  function fcGoPayPal(){
+    const nameField = document.getElementById("fcName");
+    const err = document.getElementById("fcError");
+    const name = nameField.value.trim();
+    if (!name){
+      nameField.style.borderColor = "var(--rust)";
+      err.textContent = "Please enter your name for the card first.";
+      err.style.display = "block";
+      nameField.focus();
+      return;
+    }
+    nameField.style.borderColor = "";
+    err.style.display = "none";
+    fcUpdateNote();
+    // REPLACE: swap SamuelRamos202 for your real PayPal.me username if it changes.
+    const url = "https://www.paypal.com/paypalme/SamuelRamos202/" + fcPrice;
+    window.open(url, "_blank", "noopener");
+  }
+</script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBXEVN1C0aNg163St_j-DAfrOuCKqP3AJI",
+    authDomain: "ticketsale-59f9e.firebaseapp.com",
+    projectId: "ticketsale-59f9e",
+    storageBucket: "ticketsale-59f9e.firebasestorage.app",
+    messagingSenderId: "442167269292",
+    appId: "1:442167269292:web:4b22ad9ae01c28feea0c09",
+    measurementId: "G-8166227667"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 </script>
 
 </body>
